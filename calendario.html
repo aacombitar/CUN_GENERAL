@@ -12,19 +12,19 @@
        TOKENS DE DISEÑO
        ============================================================ */
     :root {
-      --bg-grad-1: #07352d;
-      --bg-grad-2: #2d7d43;
-      --accent-soft: #c8f7c5;
-      --accent-blue: #65c9ff;
-      --highlight: #ffd54f;
+      --bg-grad-1: #102a43;
+      --bg-grad-2: #0b7285;
+      --accent-soft: #b8f2e6;
+      --accent-blue: #7bdff2;
+      --highlight: #ffb4a2;
       --ink: #ffffff;
       --ink-dim: rgba(255, 255, 255, 0.68);
-      --row-bg: rgba(255, 255, 255, 0.10);
-      --cell-strong-bg: rgba(255, 255, 255, 0.15);
-      --thead-bg: rgba(0, 0, 0, 0.46);
-      --line-soft: rgba(255, 255, 255, 0.15);
-      --radius: 8px;
-      --font-stack: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      --row-bg: rgba(255, 255, 255, 0.09);
+      --cell-strong-bg: rgba(8, 34, 57, 0.42);
+      --thead-bg: rgba(8, 34, 57, 0.72);
+      --line-soft: rgba(255, 255, 255, 0.18);
+      --radius: 10px;
+      --font-stack: "Trebuchet MS", "Segoe UI", sans-serif;
     }
 
     * {
@@ -48,29 +48,32 @@
     .calendario-cun {
       max-width: 1180px;
       margin: 0 auto;
-      padding: 20px;
+      padding: 26px;
       overflow-x: auto;
-      border-radius: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 18px;
       color: var(--ink);
       background:
-        radial-gradient(circle at 15% 10%, rgba(132, 255, 163, 0.18), transparent 26%),
-        radial-gradient(circle at 85% 80%, rgba(80, 180, 255, 0.13), transparent 28%),
-        linear-gradient(135deg, var(--bg-grad-1), var(--bg-grad-2));
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        radial-gradient(circle at 8% 0%, rgba(123, 223, 242, 0.25), transparent 28%),
+        radial-gradient(circle at 92% 100%, rgba(255, 180, 162, 0.20), transparent 30%),
+        linear-gradient(135deg, var(--bg-grad-1) 0%, #134e68 48%, var(--bg-grad-2) 100%);
+      box-shadow: 0 18px 45px rgba(6, 24, 40, 0.32);
+      animation: calendario-aparece 500ms ease-out both;
     }
 
     .calendario-cun__titulo {
       margin: 0 0 20px;
       text-align: center;
-      font-size: 22px;
+      font-size: clamp(19px, 2.4vw, 27px);
+      line-height: 1.2;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      letter-spacing: 0.08em;
+      text-shadow: 0 3px 12px rgba(0, 0, 0, 0.28);
     }
 
     .calendario-cun__subtitulo {
       display: block;
-      margin-top: 5px;
+      margin-top: 9px;
       color: var(--accent-soft);
       font-size: 16px;
       font-weight: 700;
@@ -85,7 +88,7 @@
       width: 100%;
       min-width: 920px;
       border-collapse: separate;
-      border-spacing: 0 8px;
+      border-spacing: 0 6px;
       text-align: center;
       font-size: 14px;
     }
@@ -94,11 +97,12 @@
       color: var(--accent-soft);
       background: var(--thead-bg);
       font-size: 12px;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
     }
 
     .tabla-calendario th {
-      padding: 12px 9px;
+      padding: 14px 9px;
       font-weight: 700;
     }
 
@@ -115,16 +119,32 @@
     }
 
     .tabla-calendario td {
-      padding: 10px 8px;
+      padding: 11px 8px;
       vertical-align: middle;
     }
 
     .fila-actividad {
       background: var(--row-bg);
+      transition: background-color 180ms ease, transform 180ms ease;
+    }
+
+    .fila-actividad:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: translateY(-1px);
+    }
+
+    .fila-actividad td:first-child:not(.celda-corte) {
+      border-radius: var(--radius) 0 0 var(--radius);
+    }
+
+    .fila-actividad td:last-child:not(.celda-resultado) {
+      border-radius: 0 var(--radius) var(--radius) 0;
     }
 
     .celda-semana {
       font-weight: 800;
+      color: var(--accent-blue);
+      font-size: 16px;
     }
 
     .celda-actividad {
@@ -138,10 +158,11 @@
 
     .celda-corte {
       min-width: 120px;
-      border-left: 4px solid var(--accent-blue);
+      border-left: 5px solid var(--accent-blue);
       border-radius: var(--radius) 0 0 var(--radius);
       background: var(--cell-strong-bg);
       font-weight: 800;
+      letter-spacing: 0.02em;
     }
 
     .celda-resultado {
@@ -150,10 +171,11 @@
       background: var(--cell-strong-bg);
       font-size: 18px;
       font-weight: 800;
+      color: var(--highlight);
     }
 
     .celda-resultado .peso-corte {
-      color: var(--accent-soft);
+      color: inherit;
     }
 
     .fila-separadora td {
@@ -191,6 +213,7 @@
 
     .actividad-item--evaluada {
       font-weight: 800;
+      color: #fff4ef;
     }
 
     /* Enlaces opcionales a actividades de CDigital */
@@ -215,7 +238,7 @@
     .fila-actividad.es-actual td {
       border-top: 2px solid var(--highlight);
       border-bottom: 2px solid var(--highlight);
-      background: rgba(255, 213, 79, 0.20);
+      background: rgba(255, 180, 162, 0.20);
     }
 
     .fila-actividad.es-actual td:first-child {
@@ -228,7 +251,7 @@
       padding: 4px 8px;
       border-radius: 999px;
       background: var(--highlight);
-      color: #1f2937;
+      color: #3b1f2b;
       font-size: 11px;
       font-weight: 800;
       letter-spacing: 0.04em;
@@ -237,11 +260,23 @@
 
 
     .nota-legal {
-      margin-top: 15px;
+      margin: 19px auto 0;
+      max-width: 850px;
       color: var(--ink-dim);
       font-size: 12px;
       line-height: 1.5;
       text-align: center;
+    }
+
+    @keyframes calendario-aparece {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* ============================================================
