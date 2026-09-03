@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<!-- saved from url=(0078)https://prog-sistem-cun.github.io/CalendariosAcademicos/26V02_B2_26V03_B1.html -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Calendario de actividades - Modalidad Presencial 2026 C CUN">
+  <meta name="robots" content="noindex">
+  <title>Calendario de Actividades Presencial 2026 C | CUN</title>
+
+  <style>
+    /* ============================================================
+       TOKENS DE DISEÑO
+       ============================================================ */
+    :root {
+      --bg-grad-1: #07352d;
+      --bg-grad-2: #2d7d43;
+      --accent-soft: #c8f7c5;
+      --accent-blue: #65c9ff;
+      --highlight: #ffd54f;
+      --ink: #ffffff;
+      --ink-dim: rgba(255, 255, 255, 0.68);
+      --row-bg: rgba(255, 255, 255, 0.10);
+      --cell-strong-bg: rgba(255, 255, 255, 0.15);
+      --thead-bg: rgba(0, 0, 0, 0.46);
+      --line-soft: rgba(255, 255, 255, 0.15);
+      --radius: 8px;
+      --font-stack: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      background: transparent;
+    }
+
+    body {
+      font-family: var(--font-stack);
+    }
+
+    /* ============================================================
+       CONTENEDOR PRINCIPAL
+       ============================================================ */
+    .calendario-cun {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 20px;
+      overflow-x: auto;
+      border-radius: 15px;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 15% 10%, rgba(132, 255, 163, 0.18), transparent 26%),
+        radial-gradient(circle at 85% 80%, rgba(80, 180, 255, 0.13), transparent 28%),
+        linear-gradient(135deg, var(--bg-grad-1), var(--bg-grad-2));
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .calendario-cun__titulo {
+      margin: 0 0 20px;
+      text-align: center;
+      font-size: 22px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .calendario-cun__subtitulo {
+      display: block;
+      margin-top: 5px;
+      color: var(--accent-soft);
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: normal;
+      text-transform: none;
+    }
+
+    /* ============================================================
+       TABLA
+       ============================================================ */
+    .tabla-calendario {
+      width: 100%;
+      min-width: 920px;
+      border-collapse: separate;
+      border-spacing: 0 8px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .tabla-calendario thead tr {
+      color: var(--accent-soft);
+      background: var(--thead-bg);
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    .tabla-calendario th {
+      padding: 12px 9px;
+      font-weight: 700;
+    }
+
+    .tabla-calendario th:first-child {
+      border-radius: var(--radius) 0 0 var(--radius);
+    }
+
+    .tabla-calendario th:last-child {
+      border-radius: 0 var(--radius) var(--radius) 0;
+    }
+
+    .tabla-calendario th.col-actividad {
+      text-align: left;
+    }
+
+    .tabla-calendario td {
+      padding: 10px 8px;
+      vertical-align: middle;
+    }
+
+    .fila-actividad {
+      background: var(--row-bg);
+    }
+
+    .celda-semana {
+      font-weight: 800;
+    }
+
+    .celda-actividad {
+      min-width: 330px;
+      text-align: left;
+    }
+
+    .celda-actividad small {
+      color: var(--ink-dim);
+    }
+
+    .celda-corte {
+      min-width: 120px;
+      border-left: 4px solid var(--accent-blue);
+      border-radius: var(--radius) 0 0 var(--radius);
+      background: var(--cell-strong-bg);
+      font-weight: 800;
+    }
+
+    .celda-resultado {
+      min-width: 112px;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      background: var(--cell-strong-bg);
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .celda-resultado .peso-corte {
+      color: var(--accent-soft);
+    }
+
+    .fila-separadora td {
+      height: 10px;
+      padding: 0;
+    }
+
+    /* Bloques internos para semanas con más de una actividad */
+    .lista-actividades,
+    .lista-pesos {
+      display: grid;
+      gap: 0;
+    }
+
+    .actividad-item,
+    .peso-item {
+      min-height: 34px;
+      padding: 6px 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .actividad-item + .actividad-item,
+    .peso-item + .peso-item {
+      border-top: 1px solid var(--line-soft);
+    }
+
+    .actividad-item {
+      justify-content: flex-start;
+    }
+
+    .peso-item {
+      justify-content: center;
+    }
+
+    .actividad-item--evaluada {
+      font-weight: 800;
+    }
+
+    /* Enlaces opcionales a actividades de CDigital */
+    .celda-actividad a {
+      color: var(--ink);
+      font-weight: 800;
+      text-decoration: underline;
+      text-decoration-color: rgba(255, 255, 255, 0.4);
+      text-underline-offset: 3px;
+    }
+
+    .celda-actividad a:hover,
+    .celda-actividad a:focus-visible {
+      color: var(--accent-soft);
+      text-decoration-color: var(--accent-soft);
+    }
+
+
+    /* ============================================================
+       SEMANA ACTUAL
+       ============================================================ */
+    .fila-actividad.es-actual td {
+      border-top: 2px solid var(--highlight);
+      border-bottom: 2px solid var(--highlight);
+      background: rgba(255, 213, 79, 0.20);
+    }
+
+    .fila-actividad.es-actual td:first-child {
+      border-left: 6px solid var(--highlight);
+    }
+
+    .badge-semana-actual {
+      display: inline-block;
+      margin-top: 7px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: var(--highlight);
+      color: #1f2937;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+
+    .nota-legal {
+      margin-top: 15px;
+      color: var(--ink-dim);
+      font-size: 12px;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+    @media (max-width: 640px) {
+      .calendario-cun {
+        padding: 12px;
+        border-radius: 10px;
+      }
+
+      .calendario-cun__titulo {
+        font-size: 17px;
+      }
+
+      .calendario-cun__subtitulo {
+        font-size: 13px;
+      }
+
+      .tabla-calendario {
+        font-size: 12px;
+      }
+
+      .tabla-calendario th,
+      .tabla-calendario td {
+        padding: 8px 5px;
+      }
+
+      .celda-resultado {
+        font-size: 14px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="calendario-cun" id="app-calendario">
+    <h1 class="calendario-cun__titulo">
+      Calendario de Actividades Modalidad Presencial
+      <span class="calendario-cun__subtitulo" id="subtitulo-periodo">Periodo académico 2026 C</span>
+    </h1>
+
+    <table class="tabla-calendario">
+      <thead>
+        <tr>
+          <th scope="col">Corte Académico</th>
+          <th scope="col">Semana</th>
+          <th scope="col">Fecha Inicio</th>
+          <th scope="col">Fecha Final</th>
+          <th scope="col" class="col-actividad">Actividad</th>
+          <th scope="col">% Actividad</th>
+          <th scope="col">% Corte Académico</th>
+        </tr>
+      </thead>
+      <tbody id="calendario-body">
+        <!-- Filas generadas por JavaScript desde CONFIG -->
+      <tr class="fila-actividad" data-inicio="2026-08-03" data-fin="2026-08-09">
+                <td class="celda-corte" rowspan="6">
+                  Primer Corte
+                </td>
+              <td class="celda-semana">1</td><td>03/08/2026</td><td>09/08/2026</td>
+              <td class="celda-actividad">
+                <div class="lista-actividades">
+                  
+          <div class="actividad-item">
+            <span>
+              Introducción, Reglas de Clase y Contenido
+              
+            </span>
+          </div>
+        
+                </div>
+              </td>
+            
+              <td>
+                <div class="lista-pesos">
+                  
+                    <div class="peso-item">
+                      0%
+                    </div>
+                  
+                </div>
+              </td>
+            
+                <td class="celda-resultado" rowspan="6">
+                  <div class="peso-corte">
+                    30%
+                  </div>
+                </td>
+              </tr><tr class="fila-actividad" data-inicio="2026-08-10" data-fin="2026-08-16"><td class="celda-semana">2</td><td>10/08/2026</td><td>16/08/2026</td>
+              <td class="celda-actividad">
+                <div class="lista-actividades">
+                  
+          <div class="actividad-item">
+            <span>
+              Sesión de Clase
+              
+            </span>
+          </div>
+        
+                </div>
+              </td>
+            
+              <td>
+                <div class="lista-pesos">
+                  
+                    <div class="peso-item">
+                      0%
+                    </div>
+                  
+                </div>
+              </td>
+            </tr><tr class="fila-actividad" data-inicio="2026-08-17" data-fin="2026-08-23"><td class="celda-semana">3</td><td>17/08/2026</td><td>23/08/2026</td>
+              <td class="celda-actividad">
+                <div class="lista-actividades">
+                  
+          <div class="actividad-item">
+            <span>
+              Sesión de Clase
+              
+            </span>
+          </div>
+        
+                </div>
+              </td>
+            
+              <td>
+                <div class="lista-pesos">
+                  
+                    <div class="peso-item">
+                      0%
+                    </div>
+                  
+                </div>
+              </td>
+            </tr><tr class="fila-actividad" data-inicio="2026-08-24" data-fin="2026-08-30"><td class="celda-semana">4</td><td>24/08/2026</td><td>30/08/2026</td>
+              <td class="celda-actividad">
+                <div class="lista-actividades">
+                  
+          <div class="actividad-item actividad-item--evaluada">
+            <span>
+              Quiz 1 - Sesión de Clase
+              
+            </span>
+          </div>
+        
+                </div>
+              </td>
+            
+              <td>
+                <div class="lista-pesos">
+                  
+                    <div class="peso-item">
+                      10%
+                    </div>
+                  
+                </div>
+              </td>
+            </tr><tr class="fila-actividad es-actual" data-inicio="2026-08-31" data-fin="2026-09-06"><td class="celda-semana">5</td><td>31/08/2026</td><td>06/09/2026</td>
+              <td class="celda-actividad">
+                <div class="lista-actividades">
+                  
+          <div class="actividad-item actividad-item--evaluada">
+            <span>
+              TAREA: Entrega de la idea del proyecto grupal
+              
+            </span>
+          </div>
+        
+                </div>
+              <br><span class="badge-semana-actual">Semana actual</span></td>
+            
+              <td>
+                <div class="lista-pesos">
+                  
+                    <div class="peso-item">
+                      5%
+                    </div>
+                  
+                </div>
+              </td>
+            </tr><tr class="fila-actividad" data-inicio="2026-09-07" data-fin="2026-09-13"><td class="celda-semana">6</td><td>07/09/2026</td><td>13/09/2026</td>
+              <td class="celda-actividad">
+                <div class="lista-actividades">
+                  
+          <div class="actividad-item actividad-item--evaluada">
+            <span>
+              PARCIAL 1
+              
+            </span>
+          </div>
+        
+                </div>
+              </td>
+            
+              <td>
+                <div class="lista-pesos">
+                  
+                    <div class="peso-item">
+                      15%
+                    </div>
+                  
+                </div>
+              </td>
+            </tr><tr class="fila-separadora"><td colspan="7">&nbsp;</td></tr><tr class="fila-actividad" data-inicio="2026-09-14" data-fin="2026-09-20">
+                <td class="celda-corte" rowspan="4">
+                  Segundo Corte
+                </td>
+              <td class="celda-semana">7</td><td>14/09/2026</td><td>20/09/2026</td>
+              <td class="celda-actividad">
+                <div class="lista-actividades">
+                  
+          <div class="actividad-item actividad-item--evaluada">
+            <span>
+              Mesa de debate avanzada
+              
+            </span>
+          </div>
+        
+                </div>
+              </td>
+            
+              <td>
+                <div class="lista-pesos">
+                  
+                    <div class="peso-item">
+                      6%
+                    </div>
+                  
+                </div>
+              </td>
+            
+                <td class="celda-resultado" rowspan="4">
+                  <div class="peso-corte">
+                    30%
+                  </div>
+                </td>
+              </tr><tr class="fila-actividad" data-inicio="2026-09-21" data-fin="2026-09-27"><td class="celda-semana">8</td><td>21/09/2026</td><td>27/09/2026</td>
+              <td class="celda-actividad">
+                <div class="lista-actividades">
+                  
+          <div class="actividad-item">
+            <span>
+              Sesión de Clase
+              
+            </span>
+          </div>
+        
+                </div>
+              </td>
+            
+              <td>
+                <div class="lista-pesos">
+                  
+                    <div class="peso-item">
+                      0%
+                    </div>
+                  
+                </div>
+              </td>
+            </tr><tr class="fila-actividad" data-inicio="2026-09-28" data-fin="2026-10-04"><td class="celda-semana">9</td><td>28/09/2026</td><td>04/10/2026</td>
+              <td class="celda-actividad">
+                <div class="lista-actividades">
+                  
+          <div class="actividad-item actividad-item--evaluada">
+            <span>
+              Ajustes y desarrollo avanzado del proyecto
+              
+            </span>
+          </div>
+        
+          <div class="actividad-item actividad-item--evaluada">
+            <span>
+              Simulación de Pitch
+              
+            </span>
+          </div>
+        
+                </div>
+              </td>
+            
+              <td>
+                <div class="lista-pesos">
+                  
+                    <div class="peso-item">
+                      12%
+                    </div>
+                  
+                    <div class="peso-item">
+                      12%
+                    </div>
+                  
+                </div>
+              </td>
+            </tr><tr class="fila-actividad" data-inicio="2026-10-05" data-fin="2026-10-11"><td class="celda-semana">10</td><td>05/10/2026</td><td>11/10/2026</td>
+              <td class="celda-actividad">
+                <div class="lista-actividades">
+                  
+          <div class="actividad-item">
+            <span>
+              Sesión de Clase
+              
+            </span>
+          </div>
+        
+                </div>
+              </td>
+            
+              <td>
+                <div class="lista-pesos">
+                  
+                    <div class="peso-item">
+                      0%
+                    </div>
+                  
+                </div>
+              </td>
+            </tr><tr class="fila-separadora"><td colspan="7">&nbsp;</td></tr><tr class="fila-actividad" data-inicio="2026-10-12" data-fin="2026-10-18">
+                <td class="celda-corte" rowspan="6">
+                  Tercer Corte
+                </td>
+              <td class="celda-semana">11</td><td>12/10/2026</td><td>18/10/2026</td>
+              <td class="celda-actividad">
+                <div class="lista-actividades">
+                  
+          <div class="actividad-item">
+            <span>
+              Sesión de Clase
+              
+            </span>
+          </div>
+        
+                </div>
+              </td>
+            
+              <td>
+                <div class="lista-pesos">
+                  
+                    <div class="peso-item">
+                      0%
+                    </div>
+                  
+                </div>
+              </td>
+            
+                <td class="celda-resultado" rowspan="6">
+                  <div class="peso-corte">
+                    40%
+                  </div>
+                </td>
+              </tr><tr class="fila-actividad" data-inicio="2026-10-19" data-fin="2026-10-25"><td class="celda-semana">12</td><td>19/10/2026</td><td>25/10/2026</td>
+              <td class="celda-actividad">
+                <div class="lista-actividades">
+                  
+          <div class="actividad-item actividad-item--evaluada">
+            <span>
+              Pitch grupal final - Semana de Pitch
+              
+            </span>
+          </div>
+        
+                </div>
+              </td>
+            
+              <td>
+                <div class="lista-pesos">
+                  
+                    <div class="peso-item">
+                      30%
+                    </div>
+                  
+                </div>
+              </td>
+            </tr><tr class="fila-actividad" data-inicio="2026-10-26" data-fin="2026-11-01"><td class="celda-semana">13</td><td>26/10/2026</td><td>01/11/2026</td>
+              <td class="celda-actividad">
+                <div class="lista-actividades">
+                  
+          <div class="actividad-item actividad-item--evaluada">
+            <span>
+              Quiz 2 - Sesión de Clase
+              
+            </span>
+          </div>
+        
+                </div>
+              </td>
+            
+              <td>
+                <div class="lista-pesos">
+                  
+                    <div class="peso-item">
+                      6%
+                    </div>
+                  
+                </div>
+              </td>
+            </tr><tr class="fila-actividad" data-inicio="2026-11-02" data-fin="2026-11-08"><td class="celda-semana">14</td><td>02/11/2026</td><td>08/11/2026</td>
+              <td class="celda-actividad">
+                <div class="lista-actividades">
+                  
+          <div class="actividad-item">
+            <span>
+              Semana C
+              
+            </span>
+          </div>
+        
+                </div>
+              </td>
+            
+              <td>
+                <div class="lista-pesos">
+                  
+                    <div class="peso-item">
+                      0%
+                    </div>
+                  
+                </div>
+              </td>
+            </tr><tr class="fila-actividad" data-inicio="2026-11-09" data-fin="2026-11-15"><td class="celda-semana">15</td><td>09/11/2026</td><td>15/11/2026</td>
+              <td class="celda-actividad">
+                <div class="lista-actividades">
+                  
+          <div class="actividad-item actividad-item--evaluada">
+            <span>
+              Autoevaluación
+              
+            </span>
+          </div>
+        
+          <div class="actividad-item actividad-item--evaluada">
+            <span>
+              Coevaluación
+              
+            </span>
+          </div>
+        
+                </div>
+              </td>
+            
+              <td>
+                <div class="lista-pesos">
+                  
+                    <div class="peso-item">
+                      2%
+                    </div>
+                  
+                    <div class="peso-item">
+                      2%
+                    </div>
+                  
+                </div>
+              </td>
+            </tr><tr class="fila-actividad" data-inicio="2026-11-16" data-fin="2026-11-22"><td class="celda-semana">16</td><td>16/11/2026</td><td>22/11/2026</td>
+              <td class="celda-actividad">
+                <div class="lista-actividades">
+                  
+          <div class="actividad-item">
+            <span>
+              Cierre de Notas
+              
+            </span>
+          </div>
+        
+                </div>
+              </td>
+            
+              <td>
+                <div class="lista-pesos">
+                  
+                    <div class="peso-item">
+                      0%
+                    </div>
+                  
+                </div>
+              </td>
+            </tr></tbody>
+    </table>
+
+    <p class="nota-legal">
+      * La fila resaltada indica la semana académica en curso según la fecha actual.
+      Las calificaciones oficiales deben consultarse en CDigital.
+    </p>
+  </main>
+
+  <script>
+    /* ============================================================
+       CONFIGURACIÓN DEL PERIODO PRESENCIAL 2026 C
+       ------------------------------------------------------------
+       Cada semana puede contener una o varias actividades.
+       - peso: proporción sobre la nota definitiva.
+       - url: enlace opcional a la actividad en CDigital.
+       ============================================================ */
+    const CONFIG = {
+      subtitulo: "Periodo académico 2026 C",
+      cortes: [
+        {
+          nombre: "Primer Corte",
+          pesoCorte: 0.30,
+          semanas: [
+            {
+              semana: 1,
+              inicio: "2026-08-03",
+              fin: "2026-08-09",
+              actividades: [
+                { nombre: "Introducción, Reglas de Clase y Contenido", peso: 0 }
+              ]
+            },
+            {
+              semana: 2,
+              inicio: "2026-08-10",
+              fin: "2026-08-16",
+              actividades: [
+                { nombre: "Sesión de Clase", peso: 0 }
+              ]
+            },
+            {
+              semana: 3,
+              inicio: "2026-08-17",
+              fin: "2026-08-23",
+              actividades: [
+                { nombre: "Sesión de Clase", peso: 0 }
+              ]
+            },
+            {
+              semana: 4,
+              inicio: "2026-08-24",
+              fin: "2026-08-30",
+              actividades: [
+                { nombre: "Quiz 1 - Sesión de Clase", peso: 0.10 }
+              ]
+            },
+            {
+              semana: 5,
+              inicio: "2026-08-31",
+              fin: "2026-09-06",
+              actividades: [
+                { nombre: "TAREA: Entrega de la idea del proyecto grupal", peso: 0.05 }
+              ]
+            },
+            {
+              semana: 6,
+              inicio: "2026-09-07",
+              fin: "2026-09-13",
+              actividades: [
+                { nombre: "PARCIAL 1", peso: 0.15 }
+              ]
+            }
+          ]
+        },
+        {
+          nombre: "Segundo Corte",
+          pesoCorte: 0.30,
+          semanas: [
+            {
+              semana: 7,
+              inicio: "2026-09-14",
+              fin: "2026-09-20",
+              actividades: [
+                { nombre: "Mesa de debate avanzada", peso: 0.06 }
+              ]
+            },
+            {
+              semana: 8,
+              inicio: "2026-09-21",
+              fin: "2026-09-27",
+              actividades: [
+                { nombre: "Sesión de Clase", peso: 0 }
+              ]
+            },
+            {
+              semana: 9,
+              inicio: "2026-09-28",
+              fin: "2026-10-04",
+              actividades: [
+                { nombre: "Ajustes y desarrollo avanzado del proyecto", peso: 0.12 },
+                { nombre: "Simulación de Pitch", peso: 0.12 }
+              ]
+            },
+            {
+              semana: 10,
+              inicio: "2026-10-05",
+              fin: "2026-10-11",
+              actividades: [
+                { nombre: "Sesión de Clase", peso: 0 }
+              ]
+            }
+          ]
+        },
+        {
+          nombre: "Tercer Corte",
+          pesoCorte: 0.40,
+          semanas: [
+            {
+              semana: 11,
+              inicio: "2026-10-12",
+              fin: "2026-10-18",
+              actividades: [
+                { nombre: "Sesión de Clase", peso: 0 }
+              ]
+            },
+            {
+              semana: 12,
+              inicio: "2026-10-19",
+              fin: "2026-10-25",
+              actividades: [
+                { nombre: "Pitch grupal final - Semana de Pitch", peso: 0.30 }
+              ]
+            },
+            {
+              semana: 13,
+              inicio: "2026-10-26",
+              fin: "2026-11-01",
+              actividades: [
+                { nombre: "Quiz 2 - Sesión de Clase", peso: 0.06 }
+              ]
+            },
+            {
+              semana: 14,
+              inicio: "2026-11-02",
+              fin: "2026-11-08",
+              actividades: [
+                { nombre: "Semana C", peso: 0 }
+              ]
+            },
+            {
+              semana: 15,
+              inicio: "2026-11-09",
+              fin: "2026-11-15",
+              actividades: [
+                { nombre: "Autoevaluación", peso: 0.02 },
+                { nombre: "Coevaluación", peso: 0.02 }
+              ]
+            },
+            {
+              semana: 16,
+              inicio: "2026-11-16",
+              fin: "2026-11-22",
+              actividades: [
+                { nombre: "Cierre de Notas", peso: 0 }
+              ]
+            }
+          ]
+        }
+      ]
+    };
+
+    /* ============================================================
+       MOTOR DE RENDERIZADO
+       ============================================================ */
+    (function iniciarCalendarioCUN() {
+      "use strict";
+
+      const contenedor = document.getElementById("app-calendario");
+      const tbody = document.getElementById("calendario-body");
+
+      if (!contenedor || !tbody) {
+        return;
+      }
+
+      function parseFechaLocal(fechaISO) {
+        if (!fechaISO) {
+          return null;
+        }
+
+        const partes = String(fechaISO).split("-");
+
+        if (partes.length !== 3) {
+          return null;
+        }
+
+        return new Date(
+          Number.parseInt(partes[0], 10),
+          Number.parseInt(partes[1], 10) - 1,
+          Number.parseInt(partes[2], 10)
+        );
+      }
+
+      function formatearFecha(fechaISO) {
+        const fecha = parseFechaLocal(fechaISO);
+
+        if (!fecha) {
+          return "";
+        }
+
+        const dia = String(fecha.getDate()).padStart(2, "0");
+        const mes = String(fecha.getMonth() + 1).padStart(2, "0");
+        const anio = fecha.getFullYear();
+
+        return `${dia}/${mes}/${anio}`;
+      }
+
+      function escaparHTML(valor) {
+        const div = document.createElement("div");
+        div.textContent = valor == null ? "" : String(valor);
+        return div.innerHTML;
+      }
+
+      function obtenerActividades(semana) {
+        if (Array.isArray(semana.actividades) && semana.actividades.length > 0) {
+          return semana.actividades;
+        }
+
+        return [{ nombre: "Actividad sin definir", peso: 0 }];
+      }
+
+      function crearNombreActividad(actividad) {
+        const nombre = escaparHTML(actividad.nombre);
+        const contenido = actividad.url
+          ? `<a href="${escaparHTML(actividad.url)}" target="_blank" rel="noopener noreferrer">${nombre}</a>`
+          : nombre;
+
+        const clase = Number(actividad.peso) > 0
+          ? "actividad-item actividad-item--evaluada"
+          : "actividad-item";
+
+        return `
+          <div class="${clase}">
+            <span>
+              ${contenido}
+              ${actividad.subtitulo
+                ? `<br><small>${escaparHTML(actividad.subtitulo)}</small>`
+                : ""}
+            </span>
+          </div>
+        `;
+      }
+
+      function renderizarCalendario() {
+        const subtitulo = document.getElementById("subtitulo-periodo");
+
+        if (subtitulo) {
+          subtitulo.textContent = CONFIG.subtitulo || "";
+        }
+
+        CONFIG.cortes.forEach((corte, indiceCorte) => {
+          const totalFilas = corte.semanas.length;
+
+          corte.semanas.forEach((semana, indiceSemana) => {
+            const actividades = obtenerActividades(semana);
+            const fila = document.createElement("tr");
+
+            fila.className = "fila-actividad";
+            fila.dataset.inicio = semana.inicio;
+            fila.dataset.fin = semana.fin;
+
+            let html = "";
+
+            if (indiceSemana === 0) {
+              html += `
+                <td class="celda-corte" rowspan="${totalFilas}">
+                  ${escaparHTML(corte.nombre)}
+                </td>
+              `;
+            }
+
+            html += `<td class="celda-semana">${escaparHTML(semana.semana)}</td>`;
+            html += `<td>${formatearFecha(semana.inicio)}</td>`;
+            html += `<td>${formatearFecha(semana.fin)}</td>`;
+
+            html += `
+              <td class="celda-actividad">
+                <div class="lista-actividades">
+                  ${actividades.map(crearNombreActividad).join("")}
+                </div>
+              </td>
+            `;
+
+            html += `
+              <td>
+                <div class="lista-pesos">
+                  ${actividades.map((actividad) => `
+                    <div class="peso-item">
+                      ${Math.round(Number(actividad.peso || 0) * 100)}%
+                    </div>
+                  `).join("")}
+                </div>
+              </td>
+            `;
+
+            if (indiceSemana === 0) {
+              html += `
+                <td class="celda-resultado" rowspan="${totalFilas}">
+                  <div class="peso-corte">
+                    ${Math.round(Number(corte.pesoCorte) * 100)}%
+                  </div>
+                </td>
+              `;
+            }
+
+            fila.innerHTML = html;
+            tbody.appendChild(fila);
+          });
+
+          if (indiceCorte < CONFIG.cortes.length - 1) {
+            const separador = document.createElement("tr");
+            separador.className = "fila-separadora";
+            separador.innerHTML = '<td colspan="7">&nbsp;</td>';
+            tbody.appendChild(separador);
+          }
+        });
+      }
+
+      function marcarSemanaActual() {
+        const hoy = new Date();
+        hoy.setHours(0, 0, 0, 0);
+
+        contenedor.querySelectorAll(".fila-actividad").forEach((fila) => {
+          const inicio = parseFechaLocal(fila.dataset.inicio);
+          const fin = parseFechaLocal(fila.dataset.fin);
+
+          if (!inicio || !fin) {
+            return;
+          }
+
+          inicio.setHours(0, 0, 0, 0);
+          fin.setHours(23, 59, 59, 999);
+
+          if (hoy >= inicio && hoy <= fin) {
+            fila.classList.add("es-actual");
+
+            const celdaActividad = fila.querySelector(".celda-actividad");
+
+            if (
+              celdaActividad &&
+              !celdaActividad.querySelector(".badge-semana-actual")
+            ) {
+              const badge = document.createElement("span");
+              badge.className = "badge-semana-actual";
+              badge.textContent = "Semana actual";
+
+              celdaActividad.appendChild(document.createElement("br"));
+              celdaActividad.appendChild(badge);
+            }
+          }
+        });
+      }
+      function notificarAltura() {
+        const altura = document.documentElement.scrollHeight;
+
+        window.parent.postMessage(
+          {
+            tipo: "calendario-cun-altura",
+            altura
+          },
+          "*"
+        );
+      }
+
+      renderizarCalendario();
+      marcarSemanaActual();
+
+      window.addEventListener("load", notificarAltura);
+      window.addEventListener("resize", notificarAltura);
+
+      if ("ResizeObserver" in window) {
+        new ResizeObserver(notificarAltura).observe(document.body);
+      }
+    })();
+  </script>
+
+
+</body></html>
