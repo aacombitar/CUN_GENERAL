@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,10 +16,14 @@
       --bg-grad-1: #091312;
       --bg-grad-2: #10231d;
       --card-bg: rgba(16, 32, 27, 0.85);
-      --accent-primary: #10b981;  /* Esmeralda vibrante */
-      --accent-soft: #6ee7b7;     /* Menta claro para textos destacados */
-      --accent-blue: #38bdf8;     /* Azul cian para cortes */
-      --highlight: #f59e0b;       /* Ámbar/Dorado para semana actual */
+      --accent-primary: #10b981;
+      /* Esmeralda vibrante */
+      --accent-soft: #6ee7b7;
+      /* Menta claro para textos destacados */
+      --accent-blue: #38bdf8;
+      /* Azul cian para cortes */
+      --highlight: #f59e0b;
+      /* Ámbar/Dorado para semana actual */
       --highlight-bg: rgba(245, 158, 11, 0.12);
       --ink: #f8fafc;
       --ink-dim: #94a3b8;
@@ -197,8 +202,8 @@
       align-items: center;
     }
 
-    .actividad-item + .actividad-item,
-    .peso-item + .peso-item {
+    .actividad-item+.actividad-item,
+    .peso-item+.peso-item {
       border-top: 1px solid var(--line-soft);
     }
 
@@ -217,8 +222,8 @@
       color: #ffffff;
     }
 
-    .actividad-item--evaluada + .peso-item,
-    .fila-actividad .actividad-item--evaluada ~ .lista-pesos .peso-item {
+    .actividad-item--evaluada+.peso-item,
+    .fila-actividad .actividad-item--evaluada~.lista-pesos .peso-item {
       color: var(--accent-soft);
       font-weight: 700;
     }
@@ -342,409 +347,477 @@
       </thead>
       <tbody id="calendario-body">
         <!-- Filas generadas por JavaScript desde CONFIG -->
-      <tr class="fila-actividad" data-inicio="2026-08-03" data-fin="2026-08-09">
-                <td class="celda-corte" rowspan="6">
-                  Primer Corte
-                </td>
-              <td class="celda-semana">1</td><td>03/08/2026</td><td>09/08/2026</td>
-              <td class="celda-actividad">
-                <div class="lista-actividades">
-                  
-          <div class="actividad-item">
-            <span>
-              Introducción, Reglas de Clase y Contenido
-            </span>
-          </div>
-        
-                </div>
-              </td>
-            
-              <td>
-                <div class="lista-pesos">
-                  
-                    <div class="peso-item">
-                      0%
-                    </div>
-                  
-                </div>
-              </td>
-            
-                <td class="celda-resultado" rowspan="6">
-                  <div class="peso-corte">
-                    30%
-                  </div>
-                </td>
-              </tr><tr class="fila-actividad" data-inicio="2026-08-10" data-fin="2026-08-16"><td class="celda-semana">2</td><td>10/08/2026</td><td>16/08/2026</td>
-              <td class="celda-actividad">
-                <div class="lista-actividades">
-                  
-          <div class="actividad-item">
-            <span>
-              Sesión de Clase
-            </span>
-          </div>
-        
-                </div>
-              </td>
-            
-              <td>
-                <div class="lista-pesos">
-                  
-                    <div class="peso-item">
-                      0%
-                    </div>
-                  
-                </div>
-              </td>
-            </tr><tr class="fila-actividad" data-inicio="2026-08-17" data-fin="2026-08-23"><td class="celda-semana">3</td><td>17/08/2026</td><td>23/08/2026</td>
-              <td class="celda-actividad">
-                <div class="lista-actividades">
-                  
-          <div class="actividad-item">
-            <span>
-              Sesión de Clase
-            </span>
-          </div>
-        
-                </div>
-              </td>
-            
-              <td>
-                <div class="lista-pesos">
-                  
-                    <div class="peso-item">
-                      0%
-                    </div>
-                  
-                </div>
-              </td>
-            </tr><tr class="fila-actividad" data-inicio="2026-08-24" data-fin="2026-08-30"><td class="celda-semana">4</td><td>24/08/2026</td><td>30/08/2026</td>
-              <td class="celda-actividad">
-                <div class="lista-actividades">
-                  
-          <div class="actividad-item actividad-item--evaluada">
-            <span>
-              Quiz 1 - Sesión de Clase
-            </span>
-          </div>
-        
-                </div>
-              </td>
-            
-              <td>
-                <div class="lista-pesos">
-                  
-                    <div class="peso-item">
-                      10%
-                    </div>
-                  
-                </div>
-              </td>
-            </tr><tr class="fila-actividad es-actual" data-inicio="2026-08-31" data-fin="2026-09-06"><td class="celda-semana">5</td><td>31/08/2026</td><td>06/09/2026</td>
-              <td class="celda-actividad">
-                <div class="lista-actividades">
-                  
-          <div class="actividad-item actividad-item--evaluada">
-            <span>
-              TAREA: Entrega de la idea del proyecto grupal
-            </span>
-          </div>
-        
-                </div>
-              <br><span class="badge-semana-actual">Semana actual</span></td>
-            
-              <td>
-                <div class="lista-pesos">
-                  
-                    <div class="peso-item">
-                      5%
-                    </div>
-                  
-                </div>
-              </td>
-            </tr><tr class="fila-actividad" data-inicio="2026-09-07" data-fin="2026-09-13"><td class="celda-semana">6</td><td>07/09/2026</td><td>13/09/2026</td>
-              <td class="celda-actividad">
-                <div class="lista-actividades">
-                  
-          <div class="actividad-item actividad-item--evaluada">
-            <span>
-              PARCIAL 1
-            </span>
-          </div>
-        
-                </div>
-              </td>
-            
-              <td>
-                <div class="lista-pesos">
-                  
-                    <div class="peso-item">
-                      15%
-                    </div>
-                  
-                </div>
-              </td>
-            </tr><tr class="fila-separadora"><td colspan="7">&nbsp;</td></tr><tr class="fila-actividad" data-inicio="2026-09-14" data-fin="2026-09-20">
-                <td class="celda-corte" rowspan="4">
-                  Segundo Corte
-                </td>
-              <td class="celda-semana">7</td><td>14/09/2026</td><td>20/09/2026</td>
-              <td class="celda-actividad">
-                <div class="lista-actividades">
-                  
-          <div class="actividad-item actividad-item--evaluada">
-            <span>
-              Mesa de debate avanzada
-            </span>
-          </div>
-        
-                </div>
-              </td>
-            
-              <td>
-                <div class="lista-pesos">
-                  
-                    <div class="peso-item">
-                      6%
-                    </div>
-                  
-                </div>
-              </td>
-            
-                <td class="celda-resultado" rowspan="4">
-                  <div class="peso-corte">
-                    30%
-                  </div>
-                </td>
-              </tr><tr class="fila-actividad" data-inicio="2026-09-21" data-fin="2026-09-27"><td class="celda-semana">8</td><td>21/09/2026</td><td>27/09/2026</td>
-              <td class="celda-actividad">
-                <div class="lista-actividades">
-                  
-          <div class="actividad-item">
-            <span>
-              Sesión de Clase
-            </span>
-          </div>
-        
-                </div>
-              </td>
-            
-              <td>
-                <div class="lista-pesos">
-                  
-                    <div class="peso-item">
-                      0%
-                    </div>
-                  
-                </div>
-              </td>
-            </tr><tr class="fila-actividad" data-inicio="2026-09-28" data-fin="2026-10-04"><td class="celda-semana">9</td><td>28/09/2026</td><td>04/10/2026</td>
-              <td class="celda-actividad">
-                <div class="lista-actividades">
-                  
-          <div class="actividad-item actividad-item--evaluada">
-            <span>
-              Ajustes y desarrollo avanzado del proyecto
-            </span>
-          </div>
-        
-          <div class="actividad-item actividad-item--evaluada">
-            <span>
-              Simulación de Pitch
-            </span>
-          </div>
-        
-                </div>
-              </td>
-            
-              <td>
-                <div class="lista-pesos">
-                  
-                    <div class="peso-item">
-                      12%
-                    </div>
-                  
-                    <div class="peso-item">
-                      12%
-                    </div>
-                  
-                </div>
-              </td>
-            </tr><tr class="fila-actividad" data-inicio="2026-10-05" data-fin="2026-10-11"><td class="celda-semana">10</td><td>05/10/2026</td><td>11/10/2026</td>
-              <td class="celda-actividad">
-                <div class="lista-actividades">
-                  
-          <div class="actividad-item">
-            <span>
-              Sesión de Clase
-            </span>
-          </div>
-        
-                </div>
-              </td>
-            
-              <td>
-                <div class="lista-pesos">
-                  
-                    <div class="peso-item">
-                      0%
-                    </div>
-                  
-                </div>
-              </td>
-            </tr><tr class="fila-separadora"><td colspan="7">&nbsp;</td></tr><tr class="fila-actividad" data-inicio="2026-10-12" data-fin="2026-10-18">
-                <td class="celda-corte" rowspan="6">
-                  Tercer Corte
-                </td>
-              <td class="celda-semana">11</td><td>12/10/2026</td><td>18/10/2026</td>
-              <td class="celda-actividad">
-                <div class="lista-actividades">
-                  
-          <div class="actividad-item">
-            <span>
-              Sesión de Clase
-            </span>
-          </div>
-        
-                </div>
-              </td>
-            
-              <td>
-                <div class="lista-pesos">
-                  
-                    <div class="peso-item">
-                      0%
-                    </div>
-                  
-                </div>
-              </td>
-            
-                <td class="celda-resultado" rowspan="6">
-                  <div class="peso-corte">
-                    40%
-                  </div>
-                </td>
-              </tr><tr class="fila-actividad" data-inicio="2026-10-19" data-fin="2026-10-25"><td class="celda-semana">12</td><td>19/10/2026</td><td>25/10/2026</td>
-              <td class="celda-actividad">
-                <div class="lista-actividades">
-                  
-          <div class="actividad-item actividad-item--evaluada">
-            <span>
-              Pitch grupal final - Semana de Pitch
-            </span>
-          </div>
-        
-                </div>
-              </td>
-            
-              <td>
-                <div class="lista-pesos">
-                  
-                    <div class="peso-item">
-                      30%
-                    </div>
-                  
-                </div>
-              </td>
-            </tr><tr class="fila-actividad" data-inicio="2026-10-26" data-fin="2026-11-01"><td class="celda-semana">13</td><td>26/10/2026</td><td>01/11/2026</td>
-              <td class="celda-actividad">
-                <div class="lista-actividades">
-                  
-          <div class="actividad-item actividad-item--evaluada">
-            <span>
-              Quiz 2 - Sesión de Clase
-            </span>
-          </div>
-        
-                </div>
-              </td>
-            
-              <td>
-                <div class="lista-pesos">
-                  
-                    <div class="peso-item">
-                      6%
-                    </div>
-                  
-                </div>
-              </td>
-            </tr><tr class="fila-actividad" data-inicio="2026-11-02" data-fin="2026-11-08"><td class="celda-semana">14</td><td>02/11/2026</td><td>08/11/2026</td>
-              <td class="celda-actividad">
-                <div class="lista-actividades">
-                  
-          <div class="actividad-item">
-            <span>
-              Semana C
-            </span>
-          </div>
-        
-                </div>
-              </td>
-            
-              <td>
-                <div class="lista-pesos">
-                  
-                    <div class="peso-item">
-                      0%
-                    </div>
-                  
-                </div>
-              </td>
-            </tr><tr class="fila-actividad" data-inicio="2026-11-09" data-fin="2026-11-15"><td class="celda-semana">15</td><td>09/11/2026</td><td>15/11/2026</td>
-              <td class="celda-actividad">
-                <div class="lista-actividades">
-                  
-          <div class="actividad-item actividad-item--evaluada">
-            <span>
-              Autoevaluación
-            </span>
-          </div>
-        
-          <div class="actividad-item actividad-item--evaluada">
-            <span>
-              Coevaluación
-            </span>
-          </div>
-        
-                </div>
-              </td>
-            
-              <td>
-                <div class="lista-pesos">
-                  
-                    <div class="peso-item">
-                      2%
-                    </div>
-                  
-                    <div class="peso-item">
-                      2%
-                    </div>
-                  
-                </div>
-              </td>
-            </tr><tr class="fila-actividad" data-inicio="2026-11-16" data-fin="2026-11-22"><td class="celda-semana">16</td><td>16/11/2026</td><td>22/11/2026</td>
-              <td class="celda-actividad">
-                <div class="lista-actividades">
-                  
-          <div class="actividad-item">
-            <span>
-              Cierre de Notas
-            </span>
-          </div>
-        
-                </div>
-              </td>
-            
-              <td>
-                <div class="lista-pesos">
-                  
-                    <div class="peso-item">
-                      0%
-                    </div>
-                  
-                </div>
-              </td>
-            </tr></tbody>
+        <tr class="fila-actividad" data-inicio="2026-08-03" data-fin="2026-08-09">
+          <td class="celda-corte" rowspan="6">
+            Primer Corte
+          </td>
+          <td class="celda-semana">1</td>
+          <td>03/08/2026</td>
+          <td>09/08/2026</td>
+          <td class="celda-actividad">
+            <div class="lista-actividades">
+
+              <div class="actividad-item">
+                <span>
+                  Introducción, Reglas de Clase y Contenido
+                </span>
+              </div>
+
+            </div>
+          </td>
+
+          <td>
+            <div class="lista-pesos">
+
+              <div class="peso-item">
+                0%
+              </div>
+
+            </div>
+          </td>
+
+          <td class="celda-resultado" rowspan="6">
+            <div class="peso-corte">
+              30%
+            </div>
+          </td>
+        </tr>
+        <tr class="fila-actividad" data-inicio="2026-08-10" data-fin="2026-08-16">
+          <td class="celda-semana">2</td>
+          <td>10/08/2026</td>
+          <td>16/08/2026</td>
+          <td class="celda-actividad">
+            <div class="lista-actividades">
+
+              <div class="actividad-item">
+                <span>
+                  Sesión de Clase
+                </span>
+              </div>
+
+            </div>
+          </td>
+
+          <td>
+            <div class="lista-pesos">
+
+              <div class="peso-item">
+                0%
+              </div>
+
+            </div>
+          </td>
+        </tr>
+        <tr class="fila-actividad" data-inicio="2026-08-17" data-fin="2026-08-23">
+          <td class="celda-semana">3</td>
+          <td>17/08/2026</td>
+          <td>23/08/2026</td>
+          <td class="celda-actividad">
+            <div class="lista-actividades">
+
+              <div class="actividad-item">
+                <span>
+                  Sesión de Clase
+                </span>
+              </div>
+
+            </div>
+          </td>
+
+          <td>
+            <div class="lista-pesos">
+
+              <div class="peso-item">
+                0%
+              </div>
+
+            </div>
+          </td>
+        </tr>
+        <tr class="fila-actividad" data-inicio="2026-08-24" data-fin="2026-08-30">
+          <td class="celda-semana">4</td>
+          <td>24/08/2026</td>
+          <td>30/08/2026</td>
+          <td class="celda-actividad">
+            <div class="lista-actividades">
+
+              <div class="actividad-item actividad-item--evaluada">
+                <span>
+                  Quiz 1 - Sesión de Clase
+                </span>
+              </div>
+
+            </div>
+          </td>
+
+          <td>
+            <div class="lista-pesos">
+
+              <div class="peso-item">
+                10%
+              </div>
+
+            </div>
+          </td>
+        </tr>
+        <tr class="fila-actividad es-actual" data-inicio="2026-08-31" data-fin="2026-09-06">
+          <td class="celda-semana">5</td>
+          <td>31/08/2026</td>
+          <td>06/09/2026</td>
+          <td class="celda-actividad">
+            <div class="lista-actividades">
+
+              <div class="actividad-item actividad-item--evaluada">
+                <span>
+                  TAREA: Entrega de la idea del proyecto grupal
+                </span>
+              </div>
+
+            </div>
+            <br><span class="badge-semana-actual">Semana actual</span>
+          </td>
+
+          <td>
+            <div class="lista-pesos">
+
+              <div class="peso-item">
+                5%
+              </div>
+
+            </div>
+          </td>
+        </tr>
+        <tr class="fila-actividad" data-inicio="2026-09-07" data-fin="2026-09-13">
+          <td class="celda-semana">6</td>
+          <td>07/09/2026</td>
+          <td>13/09/2026</td>
+          <td class="celda-actividad">
+            <div class="lista-actividades">
+
+              <div class="actividad-item actividad-item--evaluada">
+                <span>
+                  PARCIAL 1
+                </span>
+              </div>
+
+            </div>
+          </td>
+
+          <td>
+            <div class="lista-pesos">
+
+              <div class="peso-item">
+                15%
+              </div>
+
+            </div>
+          </td>
+        </tr>
+        <tr class="fila-separadora">
+          <td colspan="7">&nbsp;</td>
+        </tr>
+        <tr class="fila-actividad" data-inicio="2026-09-14" data-fin="2026-09-20">
+          <td class="celda-corte" rowspan="4">
+            Segundo Corte
+          </td>
+          <td class="celda-semana">7</td>
+          <td>14/09/2026</td>
+          <td>20/09/2026</td>
+          <td class="celda-actividad">
+            <div class="lista-actividades">
+
+              <div class="actividad-item actividad-item--evaluada">
+                <span>
+                  Mesa de debate avanzada
+                </span>
+              </div>
+
+            </div>
+          </td>
+
+          <td>
+            <div class="lista-pesos">
+
+              <div class="peso-item">
+                6%
+              </div>
+
+            </div>
+          </td>
+
+          <td class="celda-resultado" rowspan="4">
+            <div class="peso-corte">
+              30%
+            </div>
+          </td>
+        </tr>
+        <tr class="fila-actividad" data-inicio="2026-09-21" data-fin="2026-09-27">
+          <td class="celda-semana">8</td>
+          <td>21/09/2026</td>
+          <td>27/09/2026</td>
+          <td class="celda-actividad">
+            <div class="lista-actividades">
+
+              <div class="actividad-item">
+                <span>
+                  Sesión de Clase
+                </span>
+              </div>
+
+            </div>
+          </td>
+
+          <td>
+            <div class="lista-pesos">
+
+              <div class="peso-item">
+                0%
+              </div>
+
+            </div>
+          </td>
+        </tr>
+        <tr class="fila-actividad" data-inicio="2026-09-28" data-fin="2026-10-04">
+          <td class="celda-semana">9</td>
+          <td>28/09/2026</td>
+          <td>04/10/2026</td>
+          <td class="celda-actividad">
+            <div class="lista-actividades">
+
+              <div class="actividad-item actividad-item--evaluada">
+                <span>
+                  Ajustes y desarrollo avanzado del proyecto
+                </span>
+              </div>
+
+              <div class="actividad-item actividad-item--evaluada">
+                <span>
+                  Simulación de Pitch
+                </span>
+              </div>
+
+            </div>
+          </td>
+
+          <td>
+            <div class="lista-pesos">
+
+              <div class="peso-item">
+                12%
+              </div>
+
+              <div class="peso-item">
+                12%
+              </div>
+
+            </div>
+          </td>
+        </tr>
+        <tr class="fila-actividad" data-inicio="2026-10-05" data-fin="2026-10-11">
+          <td class="celda-semana">10</td>
+          <td>05/10/2026</td>
+          <td>11/10/2026</td>
+          <td class="celda-actividad">
+            <div class="lista-actividades">
+
+              <div class="actividad-item">
+                <span>
+                  Sesión de Clase
+                </span>
+              </div>
+
+            </div>
+          </td>
+
+          <td>
+            <div class="lista-pesos">
+
+              <div class="peso-item">
+                0%
+              </div>
+
+            </div>
+          </td>
+        </tr>
+        <tr class="fila-separadora">
+          <td colspan="7">&nbsp;</td>
+        </tr>
+        <tr class="fila-actividad" data-inicio="2026-10-12" data-fin="2026-10-18">
+          <td class="celda-corte" rowspan="6">
+            Tercer Corte
+          </td>
+          <td class="celda-semana">11</td>
+          <td>12/10/2026</td>
+          <td>18/10/2026</td>
+          <td class="celda-actividad">
+            <div class="lista-actividades">
+
+              <div class="actividad-item">
+                <span>
+                  Sesión de Clase
+                </span>
+              </div>
+
+            </div>
+          </td>
+
+          <td>
+            <div class="lista-pesos">
+
+              <div class="peso-item">
+                0%
+              </div>
+
+            </div>
+          </td>
+
+          <td class="celda-resultado" rowspan="6">
+            <div class="peso-corte">
+              40%
+            </div>
+          </td>
+        </tr>
+        <tr class="fila-actividad" data-inicio="2026-10-19" data-fin="2026-10-25">
+          <td class="celda-semana">12</td>
+          <td>19/10/2026</td>
+          <td>25/10/2026</td>
+          <td class="celda-actividad">
+            <div class="lista-actividades">
+
+              <div class="actividad-item actividad-item--evaluada">
+                <span>
+                  Pitch grupal final - Semana de Pitch
+                </span>
+              </div>
+
+            </div>
+          </td>
+
+          <td>
+            <div class="lista-pesos">
+
+              <div class="peso-item">
+                30%
+              </div>
+
+            </div>
+          </td>
+        </tr>
+        <tr class="fila-actividad" data-inicio="2026-10-26" data-fin="2026-11-01">
+          <td class="celda-semana">13</td>
+          <td>26/10/2026</td>
+          <td>01/11/2026</td>
+          <td class="celda-actividad">
+            <div class="lista-actividades">
+
+              <div class="actividad-item actividad-item--evaluada">
+                <span>
+                  Quiz 2 - Sesión de Clase
+                </span>
+              </div>
+
+            </div>
+          </td>
+
+          <td>
+            <div class="lista-pesos">
+
+              <div class="peso-item">
+                6%
+              </div>
+
+            </div>
+          </td>
+        </tr>
+        <tr class="fila-actividad" data-inicio="2026-11-02" data-fin="2026-11-08">
+          <td class="celda-semana">14</td>
+          <td>02/11/2026</td>
+          <td>08/11/2026</td>
+          <td class="celda-actividad">
+            <div class="lista-actividades">
+
+              <div class="actividad-item">
+                <span>
+                  Sesión de Clase
+                </span>
+              </div>
+
+            </div>
+          </td>
+
+          <td>
+            <div class="lista-pesos">
+
+              <div class="peso-item">
+                0%
+              </div>
+
+            </div>
+          </td>
+        </tr>
+        <tr class="fila-actividad" data-inicio="2026-11-09" data-fin="2026-11-15">
+          <td class="celda-semana">15</td>
+          <td>09/11/2026</td>
+          <td>15/11/2026</td>
+          <td class="celda-actividad">
+            <div class="lista-actividades">
+
+              <div class="actividad-item actividad-item--evaluada">
+                <span>
+                  Autoevaluación
+                </span>
+              </div>
+
+              <div class="actividad-item actividad-item--evaluada">
+                <span>
+                  Coevaluación
+                </span>
+              </div>
+
+            </div>
+          </td>
+
+          <td>
+            <div class="lista-pesos">
+
+              <div class="peso-item">
+                2%
+              </div>
+
+              <div class="peso-item">
+                2%
+              </div>
+
+            </div>
+          </td>
+        </tr>
+        <tr class="fila-actividad" data-inicio="2026-11-16" data-fin="2026-11-22">
+          <td class="celda-semana">16</td>
+          <td>16/11/2026</td>
+          <td>22/11/2026</td>
+          <td class="celda-actividad">
+            <div class="lista-actividades">
+
+              <div class="actividad-item">
+                <span>
+                  Cierre de Notas - Semana C
+                </span>
+              </div>
+
+            </div>
+          </td>
+
+          <td>
+            <div class="lista-pesos">
+
+              <div class="peso-item">
+                0%
+              </div>
+
+            </div>
+          </td>
+        </tr>
+      </tbody>
     </table>
 
     <p class="nota-legal">
@@ -890,7 +963,7 @@
               inicio: "2026-11-02",
               fin: "2026-11-08",
               actividades: [
-                { nombre: "Semana C", peso: 0 }
+                { nombre: "Sesión de Clase", peso: 0 }
               ]
             },
             {
@@ -907,7 +980,7 @@
               inicio: "2026-11-16",
               fin: "2026-11-22",
               actividades: [
-                { nombre: "Cierre de Notas", peso: 0 }
+                { nombre: "Cierre de Notas - Semana C", peso: 0 }
               ]
             }
           ]
@@ -989,8 +1062,8 @@
             <span>
               ${contenido}
               ${actividad.subtitulo
-                ? `<br><small>${escaparHTML(actividad.subtitulo)}</small>`
-                : ""}
+            ? `<br><small>${escaparHTML(actividad.subtitulo)}</small>`
+            : ""}
             </span>
           </div>
         `;
@@ -1116,11 +1189,12 @@
 
       renderizarCalendario();
       marcarSemanaActual();
-      
+
       window.addEventListener("load", notificarAltura);
       window.addEventListener("resize", notificarAltura);
       notificarAltura();
     })();
   </script>
 </body>
+
 </html>
